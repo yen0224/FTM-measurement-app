@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_ftm"
+        android:icon="@drawable/ic_tab_ftm"
+        android:title="FTM 測距" />
+    <item
+        android:id="@+id/nav_beacon"
+        android:icon="@drawable/ic_tab_beacon"
+        android:title="Beacon" />
+</menu>

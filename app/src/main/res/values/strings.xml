@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WiFi FTM Ranger</string>
+    <string name="scan_aps">掃描 AP</string>
+    <string name="start_ranging">開始測距</string>
+    <string name="stop_ranging">停止測距</string>
+    <string name="no_rtt_support">此裝置不支援 WiFi RTT (802.11mc)</string>
+    <string name="select_ap_hint">請選擇至少一個 AP 進行測距</string>
+    <string name="rtt_not_available">WiFi RTT 目前不可用</string>
+    <string name="scanning">掃描中...</string>
+    <string name="ranging">測距中...</string>
+    <string name="permission_required">需要位置權限才能掃描 WiFi</string>
+    <string name="no_rttt_aps">未找到支援 RTT 的 AP</string>
+    <string name="clear_results">清除結果</string>
+    <string name="export_results">匯出</string>
+</resources>

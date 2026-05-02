@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- WiFi signal arcs -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M54,70 a12,12 0 0,1 12,-12 a12,12 0 0,1 12,12 a12,12 0 0,1 -12,12 a12,12 0 0,1 -12,-12 Z" />
+    <path
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="4"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M36,52 a25,25 0 0,1 36,0" />
+    <path
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="4"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M26,42 a38,38 0 0,1 56,0" />
+    <!-- FTM label -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M38,84 h4 v-10 h6 v-4 H38 Z
+                          M50,84 h4 v-6 h4 v-4 h-4 v-4 h5 v-4 H50 Z
+                          M62,70 v14 h4 v-10 h3 l3,10 h4 l3,-10 v10 h4 V70 H72 l-2.5,8 -2.5,-8 Z" />
+</vector>

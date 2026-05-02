@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- iOS system colors -->
+    <color name="ios_blue">#007AFF</color>
+    <color name="ios_green">#34C759</color>
+    <color name="ios_red">#FF3B30</color>
+    <color name="ios_orange">#FF9500</color>
+    <color name="ios_yellow">#FFCC00</color>
+    <color name="ios_purple">#AF52DE</color>
+    <color name="ios_teal">#5AC8FA</color>
+
+    <!-- iOS backgrounds -->
+    <color name="ios_bg">#F2F2F7</color>
+    <color name="ios_cell_bg">#FFFFFF</color>
+    <color name="ios_nav_bar">#F8F8F8</color>
+    <color name="ios_tab_bar">#F8F8F8</color>
+
+    <!-- iOS labels -->
+    <color name="ios_label">#000000</color>
+    <color name="ios_secondary_label">#6C6C70</color>
+    <color name="ios_tertiary_label">#C5C5C7</color>
+    <color name="ios_separator">#C6C6C8</color>
+    <color name="ios_placeholder">#C7C7CC</color>
+
+    <!-- Aliases used in code -->
+    <color name="success_green">#34C759</color>
+    <color name="fail_red">#FF3B30</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+</resources>

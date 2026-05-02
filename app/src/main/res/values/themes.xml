@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.WiFiFTM" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/ios_blue</item>
+        <item name="colorPrimaryVariant">@color/ios_blue</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/ios_teal</item>
+        <item name="colorSurface">@color/ios_cell_bg</item>
+        <item name="android:windowBackground">@color/ios_bg</item>
+        <item name="android:statusBarColor">@color/ios_nav_bar</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:navigationBarColor">@color/ios_tab_bar</item>
+        <item name="android:textColorPrimary">@color/ios_label</item>
+        <item name="android:textColorSecondary">@color/ios_secondary_label</item>
+        <item name="bottomNavigationStyle">@style/BottomNavStyle</item>
+    </style>
+
+    <style name="BottomNavStyle" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="android:background">@color/ios_tab_bar</item>
+        <item name="itemIconTint">@color/bottom_nav_colors</item>
+        <item name="itemTextColor">@color/bottom_nav_colors</item>
+        <item name="labelVisibilityMode">labeled</item>
+    </style>
+
+    <!-- Detail screen: uses a light ActionBar for the back button -->
+    <style name="Theme.WiFiFTM.Detail" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <item name="colorPrimary">@color/ios_nav_bar</item>
+        <item name="colorPrimaryVariant">@color/ios_nav_bar</item>
+        <item name="colorOnPrimary">@color/ios_label</item>
+        <item name="android:windowBackground">@color/ios_bg</item>
+        <item name="android:statusBarColor">@color/ios_nav_bar</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="actionBarStyle">@style/IosActionBar</item>
+    </style>
+
+    <style name="IosActionBar" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/ios_nav_bar</item>
+        <item name="titleTextStyle">@style/IosActionBarTitle</item>
+        <item name="elevation">2dp</item>
+    </style>
+
+    <style name="IosActionBarTitle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/ios_label</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <!-- iOS-style section header text -->
+    <style name="SectionHeader">
+        <item name="android:textColor">@color/ios_secondary_label</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:letterSpacing">0.05</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+</resources>

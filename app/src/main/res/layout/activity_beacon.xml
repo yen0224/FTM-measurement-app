@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FF121212">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:gravity="center_vertical">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnBeaconScan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="掃描 AP"
+            android:layout_marginEnd="8dp" />
+
+        <TextView
+            android:id="@+id/tvBeaconStatus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="點擊「掃描 AP」開始"
+            android:textColor="#FFB0B0B0"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvBeaconNote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="12dp"
+        android:paddingBottom="4dp"
+        android:textColor="#FFFFC107"
+        android:textSize="11sp"
+        android:text="" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="  點選任一 AP 查看 Beacon Information Elements"
+        android:textColor="#FF6200EE"
+        android:textSize="12sp"
+        android:paddingVertical="4dp"
+        android:background="#FF1A1A2E" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvBeaconAps"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+</LinearLayout>
