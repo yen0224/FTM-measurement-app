@@ -22,7 +22,8 @@
             android:textSize="17sp"
             android:textStyle="bold"
             android:gravity="center"
-            android:paddingVertical="14dp" />
+            android:paddingTop="14dp"
+            android:paddingBottom="14dp" />
 
         <View
             android:layout_width="match_parent"
@@ -30,149 +31,13 @@
             android:background="@color/ios_separator" />
     </LinearLayout>
 
-    <!-- Device Support Card -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="4dp">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="裝置支援"
-            style="@style/SectionHeader"
-            android:paddingBottom="6dp"
-            android:paddingHorizontal="4dp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@drawable/ios_card"
-            android:padding="14dp">
-
-            <!-- 802.11mc -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:background="@drawable/ios_support_badge"
-                android:padding="10dp"
-                android:layout_marginEnd="6dp">
-
-                <TextView
-                    android:id="@+id/tvMcIcon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="—"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="802.11mc"
-                    android:textColor="@color/ios_label"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="2dp" />
-
-                <TextView
-                    android:id="@+id/tvMcStatus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="確認中"
-                    android:textSize="11sp"
-                    android:textColor="@color/ios_secondary_label" />
-            </LinearLayout>
-
-            <!-- 802.11az -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:background="@drawable/ios_support_badge"
-                android:padding="10dp"
-                android:layout_marginHorizontal="6dp">
-
-                <TextView
-                    android:id="@+id/tvAzIcon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="—"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="802.11az"
-                    android:textColor="@color/ios_label"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="2dp" />
-
-                <TextView
-                    android:id="@+id/tvAzStatus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="確認中"
-                    android:textSize="11sp"
-                    android:textColor="@color/ios_secondary_label" />
-            </LinearLayout>
-
-            <!-- RTT Available -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:background="@drawable/ios_support_badge"
-                android:padding="10dp"
-                android:layout_marginStart="6dp">
-
-                <TextView
-                    android:id="@+id/tvRttIcon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="—"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="RTT Ready"
-                    android:textColor="@color/ios_label"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="2dp" />
-
-                <TextView
-                    android:id="@+id/tvRttStatus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="確認中"
-                    android:textSize="11sp"
-                    android:textColor="@color/ios_secondary_label" />
-            </LinearLayout>
-        </LinearLayout>
-    </LinearLayout>
-
-    <!-- Controls -->
+    <!-- Controls row 1: Scan + Interval -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginHorizontal="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginTop="12dp"
         android:gravity="center_vertical">
 
@@ -186,17 +51,6 @@
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             app:strokeColor="@color/ios_blue"
             android:textColor="@color/ios_blue" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnStartRanging"
-            android:layout_width="wrap_content"
-            android:layout_height="36dp"
-            android:layout_marginStart="8dp"
-            android:text="開始測距"
-            android:textSize="14sp"
-            android:enabled="false"
-            app:cornerRadius="18dp"
-            app:backgroundTint="@color/ios_green" />
 
         <View android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1" />
 
@@ -227,12 +81,46 @@
             android:textSize="13sp" />
     </LinearLayout>
 
+    <!-- Controls row 2: Select AP + Start Ranging -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSelectAp"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="選擇 AP"
+            android:textSize="14sp"
+            app:cornerRadius="18dp"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            app:strokeColor="@color/ios_blue"
+            android:textColor="@color/ios_blue" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnStartRanging"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginStart="8dp"
+            android:text="開始測距"
+            android:textSize="14sp"
+            android:enabled="false"
+            app:cornerRadius="18dp"
+            app:backgroundTint="@color/ios_green" />
+    </LinearLayout>
+
     <!-- Status + result count -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingHorizontal="20dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
         android:paddingTop="6dp"
         android:paddingBottom="2dp">
 
@@ -254,31 +142,13 @@
             android:textSize="12sp" />
     </LinearLayout>
 
-    <!-- AP Section -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="  可用 AP"
-        style="@style/SectionHeader"
-        android:paddingHorizontal="16dp"
-        android:paddingTop="12dp"
-        android:paddingBottom="6dp" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvAccessPoints"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/ios_bg"
-        android:clipToPadding="false"
-        android:paddingHorizontal="16dp" />
-
-    <!-- Results Section -->
+    <!-- Results Section Header -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingHorizontal="20dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
         android:paddingTop="12dp"
         android:paddingBottom="6dp"
         android:gravity="center_vertical">
@@ -317,10 +187,11 @@
         android:id="@+id/rvResults"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2"
+        android:layout_weight="1"
         android:background="@color/ios_bg"
         android:clipToPadding="false"
-        android:paddingHorizontal="16dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         android:paddingBottom="8dp" />
 
 </LinearLayout>

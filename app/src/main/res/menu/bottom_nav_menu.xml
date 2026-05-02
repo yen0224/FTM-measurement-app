@@ -8,4 +8,8 @@
         android:id="@+id/nav_beacon"
         android:icon="@drawable/ic_tab_beacon"
         android:title="Beacon" />
+    <item
+        android:id="@+id/nav_device"
+        android:icon="@drawable/ic_tab_device"
+        android:title="裝置能力" />
 </menu>

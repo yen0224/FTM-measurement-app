@@ -25,6 +25,8 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.wififtm.databinding.FragmentFtmBinding
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import java.util.concurrent.Executors
 
 class FtmFragment : Fragment() {
@@ -37,6 +39,7 @@ class FtmFragment : Fragment() {
 
     private val apAdapter = AccessPointAdapter(AccessPointAdapter.Mode.SELECT) { _, _ ->
         updateRangingButton()
+        updateSelectApButton()
     }
     private val resultAdapter = FtmResultAdapter()
 
@@ -71,7 +74,6 @@ class FtmFragment : Fragment() {
         setupManagers()
         setupRecyclerViews()
         setupButtons()
-        updateDeviceSupportPanel()
     }
 
     override fun onResume() {
@@ -80,8 +82,6 @@ class FtmFragment : Fragment() {
             scanReceiver,
             IntentFilter(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION)
         )
-        // Refresh RTT availability (can change at runtime)
-        updateRttReadyIndicator()
     }
 
     override fun onPause() {
@@ -104,10 +104,6 @@ class FtmFragment : Fragment() {
     }
 
     private fun setupRecyclerViews() {
-        binding.rvAccessPoints.apply {
-            layoutManager = LinearLayoutManager(requireContext())
-            adapter = apAdapter
-        }
         binding.rvResults.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = resultAdapter
@@ -116,6 +112,7 @@ class FtmFragment : Fragment() {
 
     private fun setupButtons() {
         binding.btnScan.setOnClickListener { requestPermissionsAndScan() }
+        binding.btnSelectAp.setOnClickListener { showApBottomSheet() }
         binding.btnStartRanging.setOnClickListener {
             if (isRanging) stopRanging() else startRanging()
         }
@@ -125,42 +122,34 @@ class FtmFragment : Fragment() {
         }
     }
 
-    // ── Device support panel ─────────────────────────────────────────────────
+    // ── AP Bottom Sheet ──────────────────────────────────────────────────────
 
-    private fun updateDeviceSupportPanel() {
-        val pm = requireContext().packageManager
+    private fun showApBottomSheet() {
+        val ctx = requireContext()
+        val dialog = BottomSheetDialog(ctx)
+        val sheetView = layoutInflater.inflate(R.layout.bottom_sheet_ap_select, null)
 
-        // 802.11mc: hardware feature flag
-        val mcSupported = pm.hasSystemFeature(PackageManager.FEATURE_WIFI_RTT)
-        binding.tvMcIcon.text = if (mcSupported) "✓" else "✗"
-        binding.tvMcIcon.setTextColor(colorFor(mcSupported))
-        binding.tvMcStatus.text = if (mcSupported) "硬體支援" else "不支援"
-
-        // 802.11az: OS-level support requires Android 13+; hardware still needs
-        // FEATURE_WIFI_RTT and the driver to implement it. We report "OS 支援"
-        // when both conditions are met, since there's no separate feature flag.
-        val azOsSupport = Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU && mcSupported
-        binding.tvAzIcon.text = if (azOsSupport) "✓" else "✗"
-        binding.tvAzIcon.setTextColor(colorFor(azOsSupport))
-        binding.tvAzStatus.text = when {
-            !mcSupported -> "不支援"
-            Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU -> "OS 未支援 (需 Android 13)"
-            else -> "OS 支援 (API 33+)"
+        sheetView.findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.rvSheetAps).apply {
+            layoutManager = LinearLayoutManager(ctx)
+            adapter = apAdapter
         }
 
-        updateRttReadyIndicator()
+        sheetView.findViewById<com.google.android.material.button.MaterialButton>(R.id.btnSheetScan)
+            .setOnClickListener { requestPermissionsAndScan() }
+
+        sheetView.findViewById<com.google.android.material.button.MaterialButton>(R.id.btnSheetDone)
+            .setOnClickListener { dialog.dismiss() }
+
+        dialog.setContentView(sheetView)
+        dialog.behavior.skipCollapsed = true
+        dialog.behavior.state = BottomSheetBehavior.STATE_EXPANDED
+        dialog.show()
     }
 
-    private fun updateRttReadyIndicator() {
-        val available = rttManager?.isAvailable == true
-        binding.tvRttIcon.text = if (available) "✓" else "✗"
-        binding.tvRttIcon.setTextColor(colorFor(available))
-        binding.tvRttStatus.text = if (available) "可用" else "不可用"
+    private fun updateSelectApButton() {
+        val n = apAdapter.getSelectedAPs().size
+        _binding?.btnSelectAp?.text = if (n == 0) "選擇 AP" else "選擇 AP ($n)"
     }
-
-    private fun colorFor(ok: Boolean) = ContextCompat.getColor(
-        requireContext(), if (ok) R.color.ios_green else R.color.ios_red
-    )
 
     // ── Scan ─────────────────────────────────────────────────────────────────
 
@@ -191,7 +180,6 @@ class FtmFragment : Fragment() {
         apAdapter.updateList(results)
         val rttCount = results.count { it.is80211mcResponder }
         updateStatus("${results.size} 個 AP，$rttCount 個支援 RTT")
-        updateRttReadyIndicator()
     }
 
     // ── Ranging ──────────────────────────────────────────────────────────────

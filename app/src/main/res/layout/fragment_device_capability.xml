@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/ios_bg">
+
+    <!-- iOS Navigation Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/ios_nav_bar"
+        android:elevation="2dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="裝置能力"
+            android:textColor="@color/ios_label"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:paddingTop="14dp"
+            android:paddingBottom="14dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/ios_separator" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="20dp"
+            android:paddingBottom="32dp">
+
+            <!-- ─── Section: 裝置資訊 ─────────────────────────────────── -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="裝置資訊"
+                style="@style/SectionHeader"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="6dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/ios_card">
+
+                <!-- 製造商 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="製造商"
+                        android:textColor="@color/ios_label"
+                        android:textSize="15sp" />
+                    <TextView
+                        android:id="@+id/tvManufacturerValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/ios_secondary_label"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="0.5dp"
+                    android:background="@color/ios_separator" android:layout_marginStart="16dp" />
+
+                <!-- 型號 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="型號"
+                        android:textColor="@color/ios_label"
+                        android:textSize="15sp" />
+                    <TextView
+                        android:id="@+id/tvModelValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/ios_secondary_label"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="0.5dp"
+                    android:background="@color/ios_separator" android:layout_marginStart="16dp" />
+
+                <!-- Android 版本 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Android 版本"
+                        android:textColor="@color/ios_label"
+                        android:textSize="15sp" />
+                    <TextView
+                        android:id="@+id/tvApiValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/ios_secondary_label"
+                        android:textSize="15sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- ─── Section: RTT 支援狀態 ────────────────────────────────── -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="RTT 支援狀態"
+                style="@style/SectionHeader"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:paddingTop="20dp"
+                android:paddingBottom="6dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/ios_card">
+
+                <!-- 802.11mc 硬體支援 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="802.11mc 硬體"
+                        android:textColor="@color/ios_label"
+                        android:textSize="15sp" />
+                    <TextView
+                        android:id="@+id/tvMcCapIcon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="6dp" />
+                    <TextView
+                        android:id="@+id/tvMcCapStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/ios_secondary_label"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="0.5dp"
+                    android:background="@color/ios_separator" android:layout_marginStart="16dp" />
+
+                <!-- RTT 執行時可用 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="RTT 執行時可用"
+                        android:textColor="@color/ios_label"
+                        android:textSize="15sp" />
+                    <TextView
+                        android:id="@+id/tvRttReadyIcon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="6dp" />
+                    <TextView
+                        android:id="@+id/tvRttReadyStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/ios_secondary_label"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="0.5dp"
+                    android:background="@color/ios_separator" android:layout_marginStart="16dp" />
+
+                <!-- 802.11az OS 支援 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="802.11az OS 支援"
+                        android:textColor="@color/ios_label"
+                        android:textSize="15sp" />
+                    <TextView
+                        android:id="@+id/tvAzOsIcon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="6dp" />
+                    <TextView
+                        android:id="@+id/tvAzOsStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/ios_secondary_label"
+                        android:textSize="15sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- ─── Section: 詳細測距能力 (API 33+) ─────────────────────── -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="詳細測距能力"
+                style="@style/SectionHeader"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:paddingTop="20dp"
+                android:paddingBottom="6dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/ios_card">
+
+                <!-- D2AP RTT -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="裝置對 AP (D2AP)"
+                        android:textColor="@color/ios_label"
+                        android:textSize="15sp" />
+                    <TextView
+                        android:id="@+id/tvD2apIcon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="6dp" />
+                    <TextView
+                        android:id="@+id/tvD2apStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/ios_secondary_label"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="0.5dp"
+                    android:background="@color/ios_separator" android:layout_marginStart="16dp" />
+
+                <!-- D2D RTT -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="裝置對裝置 (D2D)"
+                        android:textColor="@color/ios_label"
+                        android:textSize="15sp" />
+                    <TextView
+                        android:id="@+id/tvD2dIcon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="6dp" />
+                    <TextView
+                        android:id="@+id/tvD2dStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/ios_secondary_label"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="0.5dp"
+                    android:background="@color/ios_separator" android:layout_marginStart="16dp" />
+
+                <!-- 802.11az NTB -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="802.11az NTB"
+                        android:textColor="@color/ios_label"
+                        android:textSize="15sp" />
+                    <TextView
+                        android:id="@+id/tvAzNtbIcon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="6dp" />
+                    <TextView
+                        android:id="@+id/tvAzNtbStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/ios_secondary_label"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="0.5dp"
+                    android:background="@color/ios_separator" android:layout_marginStart="16dp" />
+
+                <!-- 最大測距距離 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="最大測距距離"
+                        android:textColor="@color/ios_label"
+                        android:textSize="15sp" />
+                    <TextView
+                        android:id="@+id/tvMaxDistValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/ios_secondary_label"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="0.5dp"
+                    android:background="@color/ios_separator" android:layout_marginStart="16dp" />
+
+                <!-- 最小測距距離 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="最小測距距離"
+                        android:textColor="@color/ios_label"
+                        android:textSize="15sp" />
+                    <TextView
+                        android:id="@+id/tvMinDistValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/ios_secondary_label"
+                        android:textSize="15sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Footnote for API 33+ section -->
+            <TextView
+                android:id="@+id/tvCapNote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:paddingTop="8dp"
+                android:textColor="@color/ios_secondary_label"
+                android:textSize="12sp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

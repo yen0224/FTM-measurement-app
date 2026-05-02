@@ -11,6 +11,7 @@ class MainActivity : AppCompatActivity() {
 
     private val ftmFragment = FtmFragment()
     private val beaconFragment = BeaconFragment()
+    private val deviceFragment = DeviceCapabilityFragment()
     private var activeFragment: Fragment = ftmFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,8 +19,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Add both fragments; show FTM first
         supportFragmentManager.beginTransaction()
+            .add(R.id.fragmentContainer, deviceFragment, "device").hide(deviceFragment)
             .add(R.id.fragmentContainer, beaconFragment, "beacon").hide(beaconFragment)
             .add(R.id.fragmentContainer, ftmFragment, "ftm")
             .commit()
@@ -28,6 +29,7 @@ class MainActivity : AppCompatActivity() {
             val target = when (item.itemId) {
                 R.id.nav_ftm -> ftmFragment
                 R.id.nav_beacon -> beaconFragment
+                R.id.nav_device -> deviceFragment
                 else -> return@setOnItemSelectedListener false
             }
             if (target !== activeFragment) {
